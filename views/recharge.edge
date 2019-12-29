@@ -83,22 +83,11 @@
         };
     </script>
     @endif
-    @if(messages.response.status == 'SUCCESS')
+    @if(messages.response)
     <script>
         function myFunction() {
             swal({
-                title: "{{messages.response.status}}",
-                timer: 6000,
-                showConfirmButton: false
-            });
-        };
-    </script>
-    @endif
-    @if(messages.response.status == 'FAILED')
-    <script>
-        function myFunction() {
-            swal({
-                title: "{{messages.response.error}}",
+                title: "{{messages.response}}",
                 timer: 6000,
                 showConfirmButton: false
             });
