@@ -1,13 +1,18 @@
 const Transactions = require("../database/models/transaction");
-var request = require('request');
-const axios = require('axios');
+const crypto = require("crypto");
 
 module.exports = async (req, res) => {
-    const transactions = await Transactions.find({ productinfo: 'Recharge' })
+    const inp = req.body;
+    var key = 'grKS7G'
+    var txnid = "WPRC" + Math.floor(Math.random() * (99999999999999 - 1000) + 1000);
+    var productinfo = 'Recharge';
+    var salt = '7ctJ9wxP';
+    var hash = key + '|' + txnid + '|' + inp.amount + '|' + productinfo + '|' + inp.firstname + '|' + inp.email + '|' + '||||||||||' + salt;
+    var final = crypto.createHash('sha512').update(hash).digest('hex');
+
     const a = req.body;
     var tn = await Transactions.find({ txnid: a.txnid });
-    const url = "https://test.payu.in/_payment";
-    const data = a;
+
     if (tn.length > 0) {
         console.log('Tampered');
         req.flash('Tampered', 'Your transaction is Tampered')
@@ -65,7 +70,7 @@ module.exports = async (req, res) => {
                 <input type="hidden" required name="surl" value="http://wepays.in/pgresponse" />
                 <input type="hidden" required name="phone" value= "${a.mobileNumber}" />
                 <input type="hidden" required name="key" value="grKS7G" />
-                <input type="hidden" required name="hash" value="${a.hash}" />
+                <input type="hidden" required name="hash" value="${final}" />
                 <input type="hidden" required name="curl" value="http://wepays.in/pgresponse" />
                 <input type="hidden" required name="furl" value="http://wepays.in/pgresponse" />
                 <input type="hidden" required name="txnid" id="txnid" value=${a.txnid} />

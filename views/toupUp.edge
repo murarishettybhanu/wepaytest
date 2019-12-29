@@ -204,7 +204,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form">
-                                        <form method="POST" id="myForm" encType="multipart/form-data" onsubmit="pipe()">
+                                        <form method="POST" action="/storeOrder" id="myForm" encType="multipart/form-data">
                                             <div class="form-group">
                                                 <label>Mobile Number</label>
                                                 <input type="text" name="mobileNumber" class="form-control"
@@ -388,34 +388,6 @@
     <script src="/assets/js/scripts.js"></script>
 
     <!-- scripit init-->
-    <script>
-        function sha512(str) {
-            return crypto.subtle.digest("SHA-512", new TextEncoder("utf-8").encode(str)).then(buf => {
-                return Array.prototype.map.call(new Uint8Array(buf), x => (('00' + x.toString(16)).slice(-2))).join('');
-            });
-        }
-
-    </script>
-    <script>
-        var key = 'grKS7G'
-        var txnid = "WPRC" + Math.floor(Math.random() * (99999999999999 - 1000) + 1000);
-        var productinfo = 'Recharge';
-        var firstname = '{{users.name}}';
-        var email = '{{users.email}}';
-        var salt = '7ctJ9wxP';
-
-        async function pipe() {
-            var amount = document.getElementById("amount").value;
-            var hash = key + '|' + txnid + '|' + amount + '|' + productinfo + '|' + firstname + '|' + email + '|' + '||||||||||' + salt;
-            var final = await sha512(hash).then(x => document.getElementById('hash').value = x);
-            document.getElementById("myForm").action = "/storeOrder";
-            document.getElementById('txnid').value = txnid;
-            document.getElementById('myForm').submit();
-            console.log(hash);
-            console.log(final);
-        }
-
-    </script>
 
 </body>
 
