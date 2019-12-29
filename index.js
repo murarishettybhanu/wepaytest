@@ -43,6 +43,7 @@ const gascontroller = require("./controllers/gas");
 const electricitycontroller = require("./controllers/electricity");
 const bordbandcontroller = require("./controllers/broadband");
 const storeOrderController = require("./controllers/storeOrder");
+const rechargeController = require("./controllers/recharge")
 
 const app = new express();
 mongoose.connect("mongodb://localhost/WEPAYS");
@@ -125,6 +126,7 @@ app.get("/water",waterController);
 app.get("/gas",gascontroller);
 app.get("/electricity",electricitycontroller);
 app.get("/broadband",bordbandcontroller);
+app.get("/recharge",rechargeController)
 
 
 app.post("/AdmiUusers/update/:id",auth , adminUserUpdateController);
@@ -146,7 +148,7 @@ app.use((req, res) => res.render('not-found'));
 // );
 
 
-app.listen(80, () => {
+app.listen(8000, () => {
   console.log("App listening on port 80");
 });
 

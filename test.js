@@ -1,30 +1,14 @@
-const mongoose = require('mongoose')
-const Post = require('./database/models/Post')
+const axios = require('axios');
 
-mongoose.connect('mongodb://localhost/node-js-test-blog')
-
-Post.find({}, (error, posts) => {
-  console.log(error, posts)
-})
-
-// Post.findById("5b309ceca84e99bbb6601904", (error, post) => {
-//   console.log(error, post)
-// })
-
-// Post.findByIdAndUpdate("5b309b35bd7950bab178d912", {
-//   title: 'My first blog post title lorem ipsum'
-// }, (error, post) => {
-//   console.log(error, post)
-// })
-
-// Post.findByIdAndRemove("5b309ceca84e99bbb6601904", (error) => {
-//   console.log(error)
-// })
-
-// Post.create({
-//   title: 'My second blog post',
-//   description: 'Second Blog post description',
-//   content: 'Second Lorem ipsum content.'
-// }, (error, post) => {
-//   console.log(error, post)
-// })
+axios.get('https://joloapi.com/api/v1/recharge.php?userid=wepays&key=199806557641007&operator=JO&service=9553911455&amount=10&orderid=wepay123')
+  .then(function (response) {
+    // handle success
+    console.log(response.data);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .finally(function () {
+    // always executed
+  });

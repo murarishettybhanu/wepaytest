@@ -31,6 +31,8 @@ module.exports = async (req, res) => {
                 res.redirect('/topUp');
             }
             else {
+                req.session.operator = a.operator;
+                req.session.mode = a.mode;
                 req.session.txnid = txnid;
                 req.session.amount = a.amount;
                 req.session.email = a.email;

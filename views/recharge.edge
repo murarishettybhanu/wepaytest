@@ -83,6 +83,42 @@
         };
     </script>
     @endif
+    @if(messages.low_balance)
+    <script>
+        function myFunction() {
+            swal({
+                title: "Api balance is less",
+                timer: 6000,
+                icon: "error",
+                showConfirmButton: false
+            });
+        };
+    </script>
+    @endif
+    @if(messages.recharge_suc)
+    <script>
+        function myFunction() {
+            swal({
+                title: "Recharge Successfull",
+                timer: 6000,
+                icon: "success",
+                showConfirmButton: false
+            });
+        };
+    </script>
+    @endif
+    @if(messages.recharge_fail)
+    <script>
+        function myFunction() {
+            swal({
+                title: "Recharge Failed",
+                timer: 6000,
+                icon: "error",
+                showConfirmButton: false
+            });
+        };
+    </script>
+    @endif
     <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
         <div class="nano">
             <div class="nano-content">
@@ -220,12 +256,12 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Operator</label>
-                                                <select>
-                                                    <option value="Airtel">Airtel</option>
-                                                    <option value="Idea">Idea</option>
-                                                    <option value="Jio">Jio</option>
-                                                    <option value="Vodafone">Vodafone</option>
-                                                    <option value="Bsnl">Bsnl</option>
+                                                <select name="operator">
+                                                    <option value="AT">Airtel</option>
+                                                    <option value="IDX">Idea</option>
+                                                    <option value="JO">Jio</option>
+                                                    <option value="VF">Vodafone</option>
+                                                    <option value="BS">Bsnl</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
@@ -243,8 +279,7 @@
                                                 <input type="text" class="form-control" name="amount" id="amount"
                                                     placeholder="Amount">
                                             </div>
-                                            <input type="text" class="form-control" name="mode" value="topup"
-                                                style="display: none;">
+                                            <input type="text" class="form-control" name="mode" value="recharge" style="display: none;">
                                             <input type="hidden" name="firstname" value="{{users.name}}" />
                                             <input type="hidden" name="lastname" value="" />
                                             <input type="hidden" name="surl" value="http://wepays.in/pgresponse" />
