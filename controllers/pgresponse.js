@@ -52,8 +52,15 @@ module.exports = async (req, res) => {
                                     .then(function (response) {
                                         // handle success
                                         console.log(response.data);
-                                        req.flash('response', response.data)
-                                        res.redirect('/recharge')
+                                        if (response.data.status == 'SUCCESS') {
+                                            req.flash('rec_success', response.data.status)
+                                            res.redirect('/recharge')
+                                        }
+
+                                        else {
+                                            req.flash('rec_fail', response.data.error)
+                                            res.redirect('/recharge')
+                                        }
                                     })
                                     .catch(function (error) {
                                         // handle error
