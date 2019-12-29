@@ -1,5 +1,5 @@
 const Transactions = require("../database/models/transaction");
-const crypto = require("crypto");
+const crypto = require('crypto')
 
 module.exports = async (req, res) => {
     const inp = req.body;
@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
     var final = crypto.createHash('sha512').update(hash).digest('hex');
 
     const a = req.body;
-    var tn = await Transactions.find({ txnid: a.txnid });
+    var tn = await Transactions.find({ txnid: txnid });
 
     if (tn.length > 0) {
         console.log('Tampered');
@@ -20,7 +20,7 @@ module.exports = async (req, res) => {
     }
     else {
         Transactions.create({
-            txnid: a.txnid,
+            txnid: txnid,
             productinfo: a.productinfo,
             firstname: a.firstname,
             email: a.email,
@@ -31,7 +31,7 @@ module.exports = async (req, res) => {
                 res.redirect('/topUp');
             }
             else {
-                req.session.txnid = a.txnid;
+                req.session.txnid = txnid;
                 req.session.amount = a.amount;
                 req.session.email = a.email;
                 req.session.firstName = a.firstname;
@@ -73,7 +73,7 @@ module.exports = async (req, res) => {
                 <input type="hidden" required name="hash" value="${final}" />
                 <input type="hidden" required name="curl" value="http://wepays.in/pgresponse" />
                 <input type="hidden" required name="furl" value="http://wepays.in/pgresponse" />
-                <input type="hidden" required name="txnid" id="txnid" value=${a.txnid} />
+                <input type="hidden" required name="txnid" id="txnid" value=${txnid} />
                 <input type="hidden" required name="productinfo" value="Recharge" />
                 <input type="hidden" required name="email" value=${a.email} />
             </form>
