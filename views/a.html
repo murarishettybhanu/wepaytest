@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</head>
+
+<body class="container">
+    <nav class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+            <ul>
+                    <li class="label">Main</li>
+                    @if(Admin)
+                    <li><a href="/auth/login"><i class="ti-home"></i>Admin
+                            Dashboard <span></span></a>
+                        @endif
+                        @if(!Admin)
+                    <li><a href="/auth/login"><i class="ti-home"></i> Dashboard
+                            <span></span></a>
+                    </li>
+                    @endif
+
+                    <li class="label">Services</li>
+                    <li class=""><a href="/topUp"><i class="ti-money"></i> Mobile Recharge </a></li>
+                    <li><a href="/dth"><i class="ti-blackboard"></i> DTH</a></li>
+                    <li><a href="/electricity"><i class="fa fa-lightbulb-o"></i>
+                            Electricity</a></li>
+                    <li><a href="/gas"><i class="fa fa-fire"></i>
+                            Gas</a></li>
+                    <li><a href="/water"><span class="iconify" data-icon="ion-waterdrop"
+                                data-inline="false"></span>&nbsp;&nbsp;&nbsp;&nbsp; Water</a></li>
+                    <li><a href="/broadband"><i class="material-icons">router</i>
+                            Broadband</a></li>
+                    <li class="label">Features</li>
+                    @if(Admin)
+                    <li><a class="sidebar-sub-toggle"><i class="ti-face-smile"></i> Users <span
+                                class="sidebar-collapse-icon ti-angle-down"></span></a>
+                        <ul>
+                            <li><a href="/auth/distubitors">Users Details</a></li>
+                        </ul>
+                    </li>
+                    @endif
+                    <li><a href="/auth/viewProfile"><i class="ti-user"></i> Profile</a></li>
+                    <li class="active"><a href="/auth/transactions"><i class="ti-notepad"></i> Transactions</a>
+                    <li><a href="/auth/contactUs"><i class="ti-file"></i>ContactUs</a></li>
+                    <li><a href="/auth/logout"><i class="ti-close"></i> Logout</a></li>
+                </ul>
+    </nav>
+    <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+        <div class="nano">
+            <div class="nano-content">
+                <div class="logo"><a href="#"><span style="color: rgb(25, 124, 216)">WEPAYS PAYMENT SOLUTIONS</span></a>
+                </div>
+
+                <ul>
+                    <li class="label">Main</li>
+                    @if(Admin)
+                    <li><a href="/auth/login"><i class="ti-home"></i>Admin
+                            Dashboard <span></span></a>
+                        @endif
+                        @if(!Admin)
+                    <li><a href="/auth/login"><i class="ti-home"></i> Dashboard
+                            <span></span></a>
+                    </li>
+                    @endif
+
+                    <li class="label">Services</li>
+                    <li class=""><a href="/topUp"><i class="ti-money"></i> Mobile Recharge </a></li>
+                    <li><a href="/dth"><i class="ti-blackboard"></i> DTH</a></li>
+                    <li><a href="/electricity"><i class="fa fa-lightbulb-o"></i>
+                            Electricity</a></li>
+                    <li><a href="/gas"><i class="fa fa-fire"></i>
+                            Gas</a></li>
+                    <li><a href="/water"><span class="iconify" data-icon="ion-waterdrop"
+                                data-inline="false"></span>&nbsp;&nbsp;&nbsp;&nbsp; Water</a></li>
+                    <li><a href="/broadband"><i class="material-icons">router</i>
+                            Broadband</a></li>
+                    <li class="label">Features</li>
+                    @if(Admin)
+                    <li><a class="sidebar-sub-toggle"><i class="ti-face-smile"></i> Users <span
+                                class="sidebar-collapse-icon ti-angle-down"></span></a>
+                        <ul>
+                            <li><a href="/auth/distubitors">Users Details</a></li>
+                        </ul>
+                    </li>
+                    @endif
+                    <li><a href="/auth/viewProfile"><i class="ti-user"></i> Profile</a></li>
+                    <li class="active"><a href="/auth/transactions"><i class="ti-notepad"></i> Transactions</a>
+                    <li><a href="/auth/contactUs"><i class="ti-file"></i>ContactUs</a></li>
+                    <li><a href="/auth/logout"><i class="ti-close"></i> Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
