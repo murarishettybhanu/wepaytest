@@ -83,37 +83,23 @@
         };
     </script>
     @endif
-    @if(messages.low_balance)
+    @if(messages.response.status == 'SUCCESS')
     <script>
         function myFunction() {
             swal({
-                title: "Api balance is less",
+                title: "{{messages.response.status}}",
                 timer: 6000,
-                icon: "error",
                 showConfirmButton: false
             });
         };
     </script>
     @endif
-    @if(messages.recharge_suc)
+    @if(messages.response.status == 'FAILED')
     <script>
         function myFunction() {
             swal({
-                title: "Recharge Successfull",
+                title: "{{messages.response.error}}",
                 timer: 6000,
-                icon: "success",
-                showConfirmButton: false
-            });
-        };
-    </script>
-    @endif
-    @if(messages.recharge_fail)
-    <script>
-        function myFunction() {
-            swal({
-                title: "Recharge Failed",
-                timer: 6000,
-                icon: "error",
                 showConfirmButton: false
             });
         };

@@ -52,18 +52,8 @@ module.exports = async (req, res) => {
                                     .then(function (response) {
                                         // handle success
                                         console.log(response.data);
-                                        if (response.data.error == 'api balance is less') {
-                                            req.flash('low_balance', 'Api balance is less')
-                                            res.redirect('/recharge')
-                                        }
-                                        else if (response.data.status == "SUCCESS") {
-                                            req.flash('recharge_suc', 'Success')
-                                            res.redirect('/recharge');
-                                        }
-                                        else {
-                                            req.flash('recharge_fail', 'Failed')
-                                            res.redirect('/recharge');
-                                        }
+                                        req.flash('response', response.data)
+                                        res.redirect('/recharge')
                                     })
                                     .catch(function (error) {
                                         // handle error
