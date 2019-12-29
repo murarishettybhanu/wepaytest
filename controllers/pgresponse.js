@@ -47,7 +47,8 @@ module.exports = async (req, res) => {
                                 res.redirect('/topUp')
                             }
                             else {
-                                axios.get(`https://joloapi.com/api/v1/recharge.php?userid=wepays&key=199806557641007&operator=${req.session.operator}&service=${req.body.phone}&amount=${amount}&orderid=${tnxid}`)
+                                console.log("recharge entry")
+                                axios.get(`https://joloapi.com/api/v1/recharge.php?userid=wepays&key=199806557641007&operator=${req.session.operator}&service=${req.body.phone}&amount=${amount}&orderid=${req.body.tnxid}`)
                                     .then(function (response) {
                                         // handle success
                                         console.log(response.data);
