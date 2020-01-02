@@ -49,7 +49,7 @@ module.exports = async (req, res) => {
                             }
                             else {
                                 console.log("recharge entry")
-                                axios.get(encodeURIComponent(`https://joloapi.com/api/v1/recharge.php?userid=wepays&key=199806557641007&operator=${req.session.operator}&service=${req.body.phone}&amount=${Math.round(amount)}&orderid=${req.body.tnxid}`))
+                                axios.get(`https://joloapi.com/api/v1/recharge.php?userid=wepays&key=199806557641007&operator=${req.session.operator}&service=${req.body.phone}&amount=${Math.round(amount)}&orderid=${req.body.tnx_id}`)
                                     .then(function (response) {
                                         // handle success
                                         console.log(response.data);
