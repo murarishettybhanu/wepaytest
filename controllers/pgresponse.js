@@ -7,6 +7,7 @@ module.exports = async (req, res) => {
     var status = req.body.status;
     var txnid = req.session.txnid;
     var amount = Math.round(req.body.amount);
+    console.log(amount);
 
     console.log("txn id : " + txnid);
     console.log(req.body);
