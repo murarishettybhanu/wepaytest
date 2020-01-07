@@ -43,7 +43,9 @@ const gascontroller = require("./controllers/gas");
 const electricitycontroller = require("./controllers/electricity");
 const bordbandcontroller = require("./controllers/broadband");
 const storeOrderController = require("./controllers/storeOrder");
-const rechargeController = require("./controllers/recharge")
+const rechargeController = require("./controllers/recharge");
+const changeStatusController = require("./controllers/changeStatus");
+const deleteUserController = require("./controllers/deleteUser");
 
 const app = new express();
 mongoose.connect("mongodb://localhost/WEPAYS");
@@ -115,7 +117,7 @@ app.get("/auth/transactions",auth,transactionController);
 app.get("/register" ,registerController);
 app.get("/privacy",privacyController);
 app.get("/contact",contactController);
-app.get("/srgadminregister",sgsadminregisterController);
+app.get("/wpadminregister",sgsadminregisterController);
 app.post("/users/register" , storeUserController);
 app.get("/topUp",auth,topUpController);
 app.get("/auth/distubitors" , auth , distubitorsController );
@@ -126,7 +128,10 @@ app.get("/water",waterController);
 app.get("/gas",gascontroller);
 app.get("/electricity",electricitycontroller);
 app.get("/broadband",bordbandcontroller);
-app.get("/recharge",rechargeController)
+app.get("/recharge",rechargeController);
+app.get("/deleteUser/:id",deleteUserController)
+
+app.get("/changeStatus/:id",changeStatusController)
 
 
 app.post("/AdmiUusers/update/:id",auth , adminUserUpdateController);

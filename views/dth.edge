@@ -114,6 +114,9 @@
                     <li><a href="/auth/viewProfile"><i class="ti-user"></i> Profile</a></li>
                     <li><a href="/auth/transactions"><i class="ti-notepad"></i> Transactions</a>
                     <li><a href="/auth/contactUs"><i class="ti-file"></i>ContactUs</a></li>
+                    @if(users.memberstatus == "active")
+                    <li><a href="/topUp"><i class="ti-money"></i>Top Up</a></li>
+                    @endif
                     <li><a href="/auth/logout"><i class="ti-close"></i> Logout</a></li>
                 </ul>
             </div>

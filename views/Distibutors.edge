@@ -70,11 +70,11 @@
                 <ul>
                     <li class="label">Main</li>
                     @if(Admin)
-                    <li><a href="auth/login"><i class="ti-home"></i>Admin
+                    <li><a href="/auth/login"><i class="ti-home"></i>Admin
                             Dashboard <span class="badge badge-primary"></span></a>
                         @endif
                         @if(!Admin)
-                    <li><a href="auth/login"><i class="ti-home"></i> Dashboard
+                    <li><a href="/auth/login"><i class="ti-home"></i> Dashboard
                             <span class="badge badge-primary"></span></a>
                         @endif
 
@@ -102,6 +102,9 @@
                     <li><a href="/auth/viewProfile"><i class="ti-user"></i> Profile</a></li>
                     <li><a href="/auth/transactions"><i class="ti-notepad"></i> Transactions</a>
                     <li><a href="/auth/contactUs"><i class="ti-file"></i>ContactUs</a></li>
+                    @if(users.memberstatus == "active")
+                    <li><a href="/topUp"><i class="ti-money"></i>Top Up</a></li>
+                    @endif
                     <li><a href="/auth/logout"><i class="ti-close"></i> Logout</a></li>
                 </ul>
             </div>
@@ -188,7 +191,8 @@
                                                     <th>Name</th>
                                                     <th>Unique Id</th>
                                                     <th>Mobile Number</th>
-                                                    <th>Delete</th>
+                                                    <th>Status</th>
+                                                    <th>Options</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -197,8 +201,16 @@
                                                     <td>{{alluser.name}}</td>
                                                     <td>{{alluser.uniqueId}}</td>
                                                     <td>{{alluser.number}}</td>
-                                                    <td class="color-primary"> <a
-                                                            href="/deleteUser/{{alluser._id}}">Delete</a></td>
+                                                    <td>{{alluser.memberstatus}}</td>
+                                                    <td class="color-primary">
+                                                        <a href="/deleteUser/{{alluser._id}}">Delete</a><br>
+                                                        @if(alluser.memberstatus == "inactive")
+                                                        <a href="/changeStatus/{{alluser._id}}">Activate</a><br>
+                                                        @endif
+                                                        @if(alluser.memberstatus == "active")
+                                                        <a href="/changeStatus/{{alluser._id}}">Deactivate</a><br>
+                                                        @endif
+                                                    </td>
                                                 </tr>
                                                 @endeach
                                             </tbody>

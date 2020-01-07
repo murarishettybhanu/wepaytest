@@ -27,7 +27,8 @@
                 <div class="card">
                     <div class="card-title">
                         <a href="/">
-                            <h1 style="color: #df0000" class="m-3"> WEPAYS <span style="color:#123f6d"> | Signup </span> </h1>
+                            <h1 style="color: #df0000" class="m-3"> WEPAYS <span style="color:#123f6d"> | Signup </span>
+                            </h1>
                         </a>
                     </div>
                     <div class="card-body">
@@ -58,11 +59,57 @@
                                                 placeholder="Mobile Number">
                                         </div>
                                         <div class="form-group">
+                                            <label>Pan Number</label>
+                                            <input type="text" name="pan" class="form-control" placeholder="Pan Number">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Shop Name</label>
+                                            <input type="text" name="shopname" class="form-control"
+                                                placeholder="Shop Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Pin Code</label>
+                                            <input type="text" name="pincode" class="form-control"
+                                                placeholder="Pin Code">
+                                        </div>
+                                        <div class="form-group">
                                             <input type="text" name="role" class="form-control" value="user" hidden>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Contact Address</label>
+                                            <textarea name="contactaddress" placeholder="Address"
+                                                class="form-control"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Shop Address</label>
+                                            <textarea name="shopaddress" placeholder="Address"
+                                                class="form-control"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>KYC Status</label>
+                                            <select name="KYCStatus" class="form-control" placeholder="--select--">
+                                                <option value="KYC-Completed">KYC-Completed</option>
+                                                <option value="KYC-NotCompleted">KYC-NotCompleted</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Member Status</label>
+                                            <select name="memberstatus" class="form-control" placeholder="--select--">
+                                                <option value="active">Active</option>
+                                                <option value="inactive">Inactive</option>
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Profile Picture</label>
                                             <input type="file" name="profilePicture" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Id proof</label>
+                                            <input type="file" name="idproof" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Address proof</label>
+                                            <input type="file" name="addressproof" class="form-control">
                                         </div>
                                     </div>
                                 </div><br>
