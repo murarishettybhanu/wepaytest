@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
 
     console.log("txn id : " + txnid);
     console.log(req.body);
-    var resHash = '7ctJ9wxP' + '|' + status + '|||||||||||' + req.session.email + '|' + req.session.firstName + '|' + 'Recharge' + '|' + amount + '|' + txnid + '|' + 'grKS7G';
+    var resHash = '7ctJ9wxP' + '|' + status + '|||||||||||' + req.session.email + '|' + req.session.firstName + '|' + req.session.productinfo + '|' + amount + '|' + txnid + '|' + 'grKS7G';
     var data;
 
     for (i = 0; i < count; i++) {
@@ -37,6 +37,7 @@ module.exports = async (req, res) => {
                 phone: req.body.phone,
                 mihpayid: req.body.mihpayid,
                 addedon: req.body.addedon,
+                transaction_error: req.body.error
 
             },
                 async (error, success) => {
@@ -53,6 +54,10 @@ module.exports = async (req, res) => {
                                     .then(function (response) {
                                         // handle success
                                         console.log(response.data);
+                                        Transaction.findByIdAndUpdate({ _id: txn._id }, {
+                                            recharge_status: response.data.status,
+                                            recharge_error: response.data.error
+                                        })
                                         if (response.data.status == 'SUCCESS') {
                                             req.flash('rec_success', response.data.status)
                                             res.redirect('/recharge')

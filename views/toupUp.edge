@@ -210,36 +210,20 @@
                                         <form method="POST" action="/storeOrder" id="myForm"
                                             encType="multipart/form-data">
                                             <div class="form-group">
-                                                <label>Mobile Number</label>
+                                                <label>Service type</label>
+                                                <select name="productinfo">
+                                                    <option value="Recharge">Recharge</option>
+                                                    <option value="DTH">DTH</option>
+                                                    <option value="Electricity">Electricity</option>
+                                                    <option value="Gas">Gas</option>
+                                                    <option value="Water">Water</option>
+                                                    <option value="Broadband">Broadband</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Number</label>
                                                 <input type="text" name="mobileNumber" class="form-control"
-                                                    placeholder="Mobile Number" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Prepaid/Postpaid</label>
-                                                <select>
-                                                    <option value="Prepaid">Prepaid</option>
-                                                    <option value="Postpaid">Postpaid</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Operator</label>
-                                                <select>
-                                                    <option value="Airtel">Airtel</option>
-                                                    <option value="Idea">Idea</option>
-                                                    <option value="Jio">Jio</option>
-                                                    <option value="Vodafone">Vodafone</option>
-                                                    <option value="Bsnl">Bsnl</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Circle</label>
-                                                <select>
-                                                    <option value="Andrapradesh">Andrapradesh</option>
-                                                    <option value="Telangana">Telangana</option>
-                                                    <option value="TamilNadu">Tamilnadu</option>
-                                                    <option value="Maharastra">Maharastra</option>
-                                                    <option value="Kerala">Kerala</option>
-                                                </select>
+                                                    placeholder="Number" required>
                                             </div>
                                             <div class="form-group">
                                                 <label>Amount</label>
@@ -257,7 +241,6 @@
                                             <input type="hidden" name="curl" value="http://wepays.in/pgresponse" />
                                             <input type="hidden" name="furl" value="http://wepays.in/pgresponse" />
                                             <input type="hidden" name="txnid" id="txnid" value="" />
-                                            <input type="hidden" name="productinfo" value="Recharge" />
                                             <input type="hidden" name="email" value="{{users.email}}" />
                                             <input type="submit" value="Recharge"
                                                 class="btn btn-success btn-rounded m-b-10 m-l-5">

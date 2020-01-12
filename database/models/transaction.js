@@ -1,34 +1,43 @@
 const mongoose = require('mongoose')
 
 const TransactionSchema = new mongoose.Schema({
- status: {
+  status: {
     type: String,
   },
-  txnid:{
+  recharge_status: {
+    type: String
+  },
+  transaction_error:{
+    type:String
+  },
+  recharge_error:{
+    type:String
+  },
+  txnid: {
     type: String,
   },
-  amount:{
+  amount: {
     type: String,
   },
-  cardnum:{
+  cardnum: {
     type: String,
   },
-  firstname:{
+  firstname: {
     type: String,
   },
-  email:{
+  email: {
     type: String,
   },
-  phone:{
+  phone: {
     type: String,
   },
-  mihpayid:{
+  mihpayid: {
     type: String,
   },
-  addedon:{
+  addedon: {
     type: String,
   },
-  productinfo:{
+  productinfo: {
     type: String,
   }
 })

@@ -5,7 +5,7 @@ module.exports = async (req, res) => {
     const inp = req.body;
     var key = 'grKS7G'
     var txnid = "WPRC" + Math.floor(Math.random() * (99999999999999 - 1000) + 1000);
-    var productinfo = 'Recharge';
+    var productinfo = req.body.productinfo;
     var salt = '7ctJ9wxP';
     var hash = key + '|' + txnid + '|' + inp.amount + '|' + productinfo + '|' + inp.firstname + '|' + inp.email + '|' + '||||||||||' + salt;
     var final = crypto.createHash('sha512').update(hash).digest('hex');
@@ -76,7 +76,7 @@ module.exports = async (req, res) => {
                 <input type="hidden" required name="curl" value="http://wepays.in/pgresponse" />
                 <input type="hidden" required name="furl" value="http://wepays.in/pgresponse" />
                 <input type="hidden" required name="txnid" id="txnid" value=${txnid} />
-                <input type="hidden" required name="productinfo" value="Recharge" />
+                <input type="hidden" required name="productinfo" value="${a.productinfo}" />
                 <input type="hidden" required name="email" value=${a.email} />
             </form>
         </body>
