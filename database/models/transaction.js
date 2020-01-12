@@ -7,11 +7,11 @@ const TransactionSchema = new mongoose.Schema({
   recharge_status: {
     type: String
   },
-  transaction_error:{
-    type:String
+  transaction_error: {
+    type: String
   },
-  recharge_error:{
-    type:String
+  recharge_error: {
+    type: String
   },
   txnid: {
     type: String,
@@ -40,6 +40,8 @@ const TransactionSchema = new mongoose.Schema({
   productinfo: {
     type: String,
   }
+}, {
+  timestamps: true
 })
 
 module.exports = mongoose.model('Transactions', TransactionSchema)
