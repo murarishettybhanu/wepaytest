@@ -37,7 +37,7 @@ module.exports = async (req, res) => {
                 phone: req.body.phone,
                 mihpayid: req.body.mihpayid,
                 addedon: req.body.addedon,
-                transaction_error: req.body.error
+                transaction_error: req.body.error_Message
 
             },
                 async (error, success) => {
