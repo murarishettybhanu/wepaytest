@@ -63,13 +63,13 @@
                     <li class="label">Services</li>
                     <li class=""><a href="/recharge"><i class="ti-money"></i> Mobile Recharge </a></li>
                     <li><a href="/dth"><i class="ti-blackboard"></i> DTH</a></li>
-                    <li ><a href="/electricity"><i class="fa fa-lightbulb-o"></i>
+                    <li><a href="/electricity"><i class="fa fa-lightbulb-o"></i>
                             Electricity</a></li>
                     <li><a href="/gas"><i class="fa fa-fire"></i>
                             Gas</a></li>
-                    <li  ><a href="/water"><span class="iconify" data-icon="ion-waterdrop"
+                    <li><a href="/water"><span class="iconify" data-icon="ion-waterdrop"
                                 data-inline="false"></span>&nbsp;&nbsp;&nbsp;&nbsp; Water</a></li>
-                    <li  ><a href="/broadband"><i class="material-icons">router</i>
+                    <li><a href="/broadband"><i class="material-icons">router</i>
                             Broadband</a></li>
                     <li class="label">Features</li>
                     @if(Admin)
@@ -175,9 +175,9 @@
                                                         <th>Invoice No</th>
                                                         <th>Amount</th>
                                                         <th>Status</th>
-                                                        <th>Recharge_status</th>
+                                                        <th>Service_status</th>
                                                         <th>Transaction_error</th>
-                                                        <th>Recharge_error</th>
+                                                        <th>Service_error</th>
                                                         <th>Mobile No</th>
                                                         <th>Name</th>
                                                         <th>Email</th>
@@ -193,7 +193,7 @@
                                                         <td>{{transaction.mihpayid}}</td>
                                                         <td class="price">{{transaction.amount}}</td>
                                                         <td>{{transaction.status}}</td>
-                                                        <td>{{transaction.recharge_status || success }}</td>
+                                                        <td>{{transaction.recharge_status}} || success</td>
                                                         <td>{{transaction.transaction_error}}</td>
                                                         <td>{{transaction.recharge_error}}</td>
                                                         <td>{{transaction.phone}}</td>
