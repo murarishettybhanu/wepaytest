@@ -153,7 +153,7 @@ app.use((req, res) => res.render('not-found'));
 // );
 
 
-app.listen(8000, () => {
+app.listen(80, () => {
   console.log("App listening on port 80");
 });
 
